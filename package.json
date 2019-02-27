@@ -1,0 +1,16 @@
+{
+  "name": "react-destate",
+  "version": "0.0.1",
+  "description": "React bindings for destate",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Usher Klein",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "destate": "0.0.4",
+    "react": "^16.8.3"
+  }
+}
