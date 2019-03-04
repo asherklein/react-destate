@@ -8,7 +8,9 @@
   },
   "author": "Usher Klein",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.8.3"
+  },
   "devDependencies": {
     "destate": "0.0.4",
     "react": "^16.8.3"
