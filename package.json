@@ -1,6 +1,6 @@
 {
   "name": "react-destate",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React bindings for destate",
   "main": "dist/index.js",
   "files": [
