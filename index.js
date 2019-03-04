@@ -1,3 +1,4 @@
+const connect = require('./src/components/connect')
+const Provider = require('./src/components/Provider')
 
-export { default as connect } from './src/components/connect'
-export { default as Provider } from './src/components/Provider'
+module.exports = { connect, Provider }

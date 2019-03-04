@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import Context from './Context'
+const React = require('react')
+const Context = require('./Context')
 
 
-export default (reducers, RawComponent) => {
-    class DestatedComponent extends Component{
+module.exports = (reducers, RawComponent) => {
+    class DestatedComponent extends React.Component{
         constructor(props){
             super(props)
             this.state = {}
