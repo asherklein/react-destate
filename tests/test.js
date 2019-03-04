@@ -1,2 +1,2 @@
-import {Provider} from '../index'
+import {Provider} from '../src/index'
 console.log('provider')
