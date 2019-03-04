@@ -1,4 +1,3 @@
-import connect from './src/components/connect'
-import Provider from './src/components/Provider'
 
-export default { connect, Provider }
+export { default as connect } from './src/components/connect'
+export { default as Provider } from './src/components/Provider'
