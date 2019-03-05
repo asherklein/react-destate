@@ -1,3 +1,3 @@
-const React = require('react')
+import React from 'react'
 
-module.exports = React.createContext(null)
+export default React.createContext(null)

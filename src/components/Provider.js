@@ -1,6 +1,6 @@
-const React = require('react')
-const Context = require('./Context')
+import React from 'react'
+import Context from './Context'
 
-module.exports = ({ children, ledger }) => <Context.Provider value={ledger}>{children}</Context.Provider>
+export default ({ children, ledger }) => <Context.Provider value={ledger}>{children}</Context.Provider>
 
 

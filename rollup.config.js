@@ -4,7 +4,8 @@ export default {
     input: 'src/index.js',
     output: {
         file: 'dist/index.js',
-        format: 'cjs'
+        format: 'cjs',
+        globals: { react: 'React'}
     },
     // All the used libs needs to be here
     external: [
