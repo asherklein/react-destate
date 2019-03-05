@@ -2,35 +2,48 @@ import React, { Component } from 'react'
 import Context from './Context'
 
 
-export default (reducers, RawComponent) => {
-    class DestatedComponent extends Component{
-        constructor(props){
-            super(props)
-            this.state = {}
-        }
 
-        componentDidMount = () => {
-            const { address } = this.props
-            const { receive, subscribe } = this.context
-            
-            this.sub = subscribe(address, reducers, (state) => this.setState(state))
+class DestatedComponent extends Component {
+    constructor(props) {
+        super(props)
+        const { address, reducers, ledger: { receive } } = this.props
+        this.state = receive(address, reducers)
 
-            this.setState(receive(address, reducers))
-        }
-
-        componentWillMount = () => this.sub && this.sub.unSubscribe()
-        
-        render = () => <RawComponent 
-            {...this.state} 
-            {...this.props}
-            send={this.context.send}
-            me={this.props.address} 
-        />
     }
 
-    DestatedComponent.contextType = Context
+    componentDidMount = () => {
+        const { address, reducers } = this.props
+        const { receive, subscribe } = this.props.ledger
 
-    return DestatedComponent
+        this.sub = subscribe(address, reducers, (state) => this.setState(state))
+
+        this.setState(receive(address, reducers))
+    }
+
+    componentWillUnmount = () => this.sub && this.sub.unSubscribe()
+
+    render = () => {
+        const { RawComponent, address, ledger, reducers, ...props } = this.props
+        return <RawComponent
+            {...this.state}
+            {...props}
+            me={address}
+            ledger={ledger}
+        />
+    }
 }
+
+export default (reducers, RawComponent) =>
+    (props) => <Context.Consumer>
+        {( ledger ) => <DestatedComponent
+            {...{
+                ...props,
+                ledger,
+                reducers,
+                RawComponent
+            }}
+        />}
+    </Context.Consumer>
+
 
 
